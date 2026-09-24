@@ -26,19 +26,19 @@ export default function Hero({ jump }) {
 
           {/* จุดที่ 1: แทนที่สี่เหลี่ยมใหญ่ตรงกลาง */}
           <img
-            src="/src/assets/KW-3PICON.png"
+            src="/public/assets/KW-3PICON.png"
             alt="โซลูชันพลังงานหลักของ KIT-WISe"
             className="hero-img hero-img-main"
           />
           {/* จุดที่ 2: แทนที่สี่เหลี่ยมเล็กด้านล่างซ้าย */}
           <img
-            src="src/assets/LINE_CHIP.png"
+            src="public/assets/LINE_CHIP.png"
             alt="แผงควบคุมการใช้พลังงาน"
             className="hero-img hero-img-small"
           />
           {/* จุดที่ 3: แทนที่วงกลมด้านบนขวา */}
           <img
-            src="/src/assets/EV_ICON.png"
+            src="/public/assets/EV_ICON.png"
             alt="สถานีชาร์จ EV"
             className="hero-img hero-img-circle"
           />

@@ -12,7 +12,7 @@ export default function Header({ jump }) {
     <header className="nav">
       <div className="wrap nav-inner">
         <button className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="KIT-WISe home">
-          <img src="src/assets/KW-LOGO.png" alt="KIT-WISe" className="logo-img" />
+          <img src="public/assets/KW-LOGO.png" alt="KIT-WISe" className="logo-img" />
         </button>
         <ul className={`nav-links${navOpen ? " open" : ""}`}>
           <li><button onClick={() => handleJump("solutions")}>Solutions</button></li>

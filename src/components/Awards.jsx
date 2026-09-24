@@ -1,12 +1,12 @@
 const AWARDS = [
-  { name: "RMUTT Innovation and Invention Awards 2025", image: "src/assets/Awards/LINE_ALBUM_รางวัล_260924_4.jpg" },
-  { name: "OIC Insurtech Award 2025", image: "src/assets/Awards/LINE_ALBUM_รางวัล_260924_5.jpg" },
-  { name: "IoT Sustainability Innovation Award", image: "src/assets/Awards/LINE_ALBUM_รางวัล_260924_6.jpg" },
-  { name: "Best ESG Achievement Award", image: "src/assets/Awards/LINE_ALBUM_รางวัล_260924_7.jpg" },
-  { name: "Scopus Citation Achievement Award", image: "src/assets/Awards/LINE_ALBUM_รูปภาพรางวัล_260916_5.jpg" },
-  { name: "Diplôme — Inventions Geneva", image: "src/assets/Awards/LINE_ALBUM_รางวัล_260924_3.jpg" },
-  { name: "NRCT Special Award", image: "src/assets/Awards/LINE_ALBUM_รางวัล_260924_2.jpg" },
-  { name: "Taiwan Invention Association — Certificate of Achievement", image: "src/assets/Awards/LINE_ALBUM_รางวัล_260924_1.jpg" },
+  { name: "RMUTT Innovation and Invention Awards 2025", image: "public/assets/Awards/LINE_ALBUM_รางวัล_260924_4.jpg" },
+  { name: "OIC Insurtech Award 2025", image: "public/assets/Awards/LINE_ALBUM_รางวัล_260924_5.jpg" },
+  { name: "IoT Sustainability Innovation Award", image: "public/assets/Awards/LINE_ALBUM_รางวัล_260924_6.jpg" },
+  { name: "Best ESG Achievement Award", image: "public/assets/Awards/LINE_ALBUM_รางวัล_260924_7.jpg" },
+  { name: "Scopus Citation Achievement Award", image: "public/assets/Awards/LINE_ALBUM_รูปภาพรางวัล_260916_5.jpg" },
+  { name: "Diplôme — Inventions Geneva", image: "public/assets/Awards/LINE_ALBUM_รางวัล_260924_3.jpg" },
+  { name: "NRCT Special Award", image: "public/assets/Awards/LINE_ALBUM_รางวัล_260924_2.jpg" },
+  { name: "Taiwan Invention Association — Certificate of Achievement", image: "public/assets/Awards/LINE_ALBUM_รางวัล_260924_1.jpg" },
 ];
 
 export default function Awards() {

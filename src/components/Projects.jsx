@@ -2,35 +2,35 @@ import { useState } from "react";
 
 const PROJECTS = [
 
-  { id: "p1", name: "วัชรพล (KW-CENTER)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_ถ่ายวิดีโอบ้านคุณลิม_260826_2.jpg" },
-  { id: "p2", name: "Skyline Residences", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_ช่างไฟฟ้า แสนดี_260826_1.jpg" },
-  { id: "p3", name: "Marque Resident (KW-C-0108i)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_12267ลงโปรแกรมห้องคุณเพ้ง (ช่องจอด 203)_260826_1.jpg" },
-  { id: "p4", name: "ESARA CDC (KW-C-0024i)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_ESARA @CDC_260826_3.jpg" },
+  { id: "p1", name: "วัชรพล (KW-CENTER)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_ถ่ายวิดีโอบ้านคุณลิม_260826_2.jpg" },
+  { id: "p2", name: "Skyline Residences", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_ช่างไฟฟ้า แสนดี_260826_1.jpg" },
+  { id: "p3", name: "Marque Resident (KW-C-0108i)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_12267ลงโปรแกรมห้องคุณเพ้ง (ช่องจอด 203)_260826_1.jpg" },
+  { id: "p4", name: "ESARA CDC (KW-C-0024i)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_ESARA @CDC_260826_3.jpg" },
 
   { id: "p5", name: "Central Business Center", cat: "solar", catLabel: "SOLAR AS A SERVICE", icon: "sun", image: "" },
   { id: "p6", name: "Harbor Front Mall", cat: "solar", catLabel: "SOLAR AS A SERVICE", icon: "sun", image: null },
   
-  { id: "p7", name: "Prosper (EV Station)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "/src/assets/LINE_ALBUM_พรอสเพอร์_260826_1.jpg" },
-  { id: "p8", name: "Prosper (EV Trader)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/LINE_ALBUM_242024 Prosper เปลี่ยนเป็นกล่องกันน้ำ_260826_1.jpg" },
-  { id: "p9", name: "Prosper (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/LINE_ALBUM_พรอสเพอร์_260826_2.jpg" },
-  { id: "p10", name: "Millennium Condo (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/LINE_ALBUM_โครงการมิลเลนเนียม_260826_2.jpg" },
-  { id: "p11", name: "Millennium Condo (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/LINE_ALBUM_Doctor Charger_260826_1.jpg" },
-  { id: "p12", name: "Millennium Condo (EV Station)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/LINE_ALBUM_โครงการมิลเลนเนียม_260826_1.jpg" },
-  { id: "p13", name: "Marque Resident Condo (EV Trader)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/LINE_ALBUM_แก้ไขช่องชาร์จ 347 วันที่ 30 มกราคม_260826_1.jpg" },
-  { id: "p14", name: "Royce Resident Condo (EV Trader)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/LINE_ALBUM_ROYCE_260826_1.jpg" },
+  { id: "p7", name: "Prosper (EV Station)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "/public/assets/LINE_ALBUM_พรอสเพอร์_260826_1.jpg" },
+  { id: "p8", name: "Prosper (EV Trader)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/LINE_ALBUM_242024 Prosper เปลี่ยนเป็นกล่องกันน้ำ_260826_1.jpg" },
+  { id: "p9", name: "Prosper (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/LINE_ALBUM_พรอสเพอร์_260826_2.jpg" },
+  { id: "p10", name: "Millennium Condo (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/LINE_ALBUM_โครงการมิลเลนเนียม_260826_2.jpg" },
+  { id: "p11", name: "Millennium Condo (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/LINE_ALBUM_Doctor Charger_260826_1.jpg" },
+  { id: "p12", name: "Millennium Condo (EV Station)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/LINE_ALBUM_โครงการมิลเลนเนียม_260826_1.jpg" },
+  { id: "p13", name: "Marque Resident Condo (EV Trader)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/LINE_ALBUM_แก้ไขช่องชาร์จ 347 วันที่ 30 มกราคม_260826_1.jpg" },
+  { id: "p14", name: "Royce Resident Condo (EV Trader)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/LINE_ALBUM_ROYCE_260826_1.jpg" },
 
-  { id: "p15", name: "RMUTT (EV AIR+ Ultra)", cat: "multi", catLabel: "MULTI CHARGING", icon: "multi", image: "src/assets/328490_0.jpg" },
+  { id: "p15", name: "RMUTT (EV AIR+ Ultra)", cat: "multi", catLabel: "MULTI CHARGING", icon: "multi", image: "public/assets/328490_0.jpg" },
 
-  { id: "p16", name: "Krischonme Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_SAN-D บ้าน อ.กฤษชนม์_260826_1.jpg" },
-  { id: "p17", name: "Im Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_SAN-D บ้านคุณอิม_260826_1.jpg" },
-  { id: "p18", name: "Pzent Office (KW-C-0014)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/339957.jpg" },
-  { id: "p19", name: "Yee Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_SAN-D บ้านคุณยี้_260826_1.jpg" },
-  { id: "p20", name: "CANADA (EV MAX6)", cat: "multi", catLabel: "MULTI CHARGING", icon: "multi", image: "src/assets/LINE_ALBUM_EV แคนาดา_260826_1.jpg" },
-  { id: "p21", name: "Lim Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_ถ่ายวิดีโอบ้านคุณลิม_260826_1.jpg" },
-  { id: "p22", name: "KMC Ekamai10 (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "src/assets/516506_0_0.jpg" },
-  { id: "p23", name: "Pzent Office (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/2d0db601-894e-4137-b876-1e0ca317644b_f5c68604-2478-4a22-ad2b-1f86ce361718_encrypted.jpg" },
-  { id: "p24", name: "KMC Ekamai10 Office (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/2dc68e9f-1453-4814-9483-60cd0a7d20c2_03a68dca-7130-4fca-a5ab-d0fde06c0626_encrypted.jpg" },
-  { id: "p25", name: "Koi Home (KIT-WISe 1Ph wifi)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "src/assets/LINE_ALBUM_บ้านคุณก้อย รามอินทรา 2332569_260323_9.jpg" },
+  { id: "p16", name: "Krischonme Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_SAN-D บ้าน อ.กฤษชนม์_260826_1.jpg" },
+  { id: "p17", name: "Im Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_SAN-D บ้านคุณอิม_260826_1.jpg" },
+  { id: "p18", name: "Pzent Office (KW-C-0014)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/339957.jpg" },
+  { id: "p19", name: "Yee Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_SAN-D บ้านคุณยี้_260826_1.jpg" },
+  { id: "p20", name: "CANADA (EV MAX6)", cat: "multi", catLabel: "MULTI CHARGING", icon: "multi", image: "public/assets/LINE_ALBUM_EV แคนาดา_260826_1.jpg" },
+  { id: "p21", name: "Lim Home (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_ถ่ายวิดีโอบ้านคุณลิม_260826_1.jpg" },
+  { id: "p22", name: "KMC Ekamai10 (EV AIR)", cat: "ev", catLabel: "EV CHARGING", icon: "plug", image: "public/assets/516506_0_0.jpg" },
+  { id: "p23", name: "Pzent Office (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/2d0db601-894e-4137-b876-1e0ca317644b_f5c68604-2478-4a22-ad2b-1f86ce361718_encrypted.jpg" },
+  { id: "p24", name: "KMC Ekamai10 Office (KW-C-0054)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/2dc68e9f-1453-4814-9483-60cd0a7d20c2_03a68dca-7130-4fca-a5ab-d0fde06c0626_encrypted.jpg" },
+  { id: "p25", name: "Koi Home (KIT-WISe 1Ph wifi)", cat: "energy", catLabel: "ENERGY MANAGEMENT", icon: "grid", image: "public/assets/LINE_ALBUM_บ้านคุณก้อย รามอินทรา 2332569_260323_9.jpg" },
 
 ];
 
