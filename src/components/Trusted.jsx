@@ -1,5 +1,5 @@
 const PARTNERS = [
-  { name: "Millennium", logo: "/assets/Partner/Mln.jpeg", rounded: false },
+  { name: "Millennium", logo: "/assets/Partner/mln.jpeg", rounded: false },
   { name: "Marque", logo: "/assets/Partner/Marq.png", rounded: true },
   { name: "Esara", logo: "/assets/Partner/Esara.png", rounded: true },
   { name: "UrbanConnect", logo: "/assets/Partner/Urban.jpeg", rounded: false },
