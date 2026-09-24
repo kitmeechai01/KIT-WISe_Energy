@@ -1,10 +1,10 @@
 const PARTNERS = [
-  { name: "PZent", logo: "/assets/Partner/Mln.jpeg", rounded: false },
-  { name: "Partner A", logo: "/assets/Partner/Marq.png", rounded: true },
-  { name: "Partner B", logo: "/assets/Partner/Esara.png", rounded: true },
-  { name: "Partner C", logo: "/assets/Partner/Urban.jpeg", rounded: false },
-  { name: "Partner D", logo: "/assets/Partner/PZent.png", rounded: false },
-  { name: "Partner E", logo: "/assets/Partner/Rmutt.jpeg", rounded: false },
+  { name: "Millennium", logo: "/assets/Partner/Mln.jpeg", rounded: false },
+  { name: "Marque", logo: "/assets/Partner/Marq.png", rounded: true },
+  { name: "Esara", logo: "/assets/Partner/Esara.png", rounded: true },
+  { name: "UrbanConnect", logo: "/assets/Partner/Urban.jpeg", rounded: false },
+  { name: "Pzent", logo: "/assets/Partner/PZent.png", rounded: false },
+  { name: "RMUTT", logo: "/assets/Partner/Rmutt.jpeg", rounded: false },
 ];
 
 export default function Trusted() {
