@@ -7,6 +7,9 @@ const AWARDS = [
   { name: "Diplôme — Inventions Geneva", image: "/assets/Awards/LINE_ALBUM_รางวัล_260924_3.jpg" },
   { name: "NRCT Special Award", image: "/assets/Awards/LINE_ALBUM_รางวัล_260924_2.jpg" },
   { name: "Taiwan Invention Association — Certificate of Achievement", image: "/assets/Awards/LINE_ALBUM_รางวัล_260924_1.jpg" },
+  { name: "Awards 01", image: "public/assets/Awards/LINE_ALBUM_รูปภาพรางวัล_260916_1.png" },
+  { name: "Awards 02", image: "public/assets/Awards/LINE_ALBUM_รูปภาพรางวัล_260916_2.jpg" },
+
 ];
 
 export default function Awards() {
