@@ -1,13 +1,13 @@
-import "./index.css";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Solutions from "./components/Solutions";
-import Why from "./components/Why";
-import Projects from "./components/Projects";
-import Trusted from "./components/Trusted";
-import Awards from "./components/Awards";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+// import "./index.css";
+// import Header from "./components/Header";
+// import Hero from "./components/Hero";
+// import Solutions from "./components/Solutions";
+// import Why from "./components/Why";
+// import Projects from "./components/Projects";
+// import Trusted from "./components/Trusted";
+// import Awards from "./components/Awards";
+// import Contact from "./components/Contact";
+// import Footer from "./components/Footer";
 
 /**
  * KIT-WISe — Smart Energy landing page
@@ -24,21 +24,89 @@ import Footer from "./components/Footer";
  * no Tailwind required). Colors live in the :root CSS variables — change
  * them there to re-theme the whole page.
  */
-export default function App() {
-  const jump = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+// export default function App() {
+//   const jump = (id) => {
+//     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+//   };
 
+//   return (
+//     <>
+//       <Header jump={jump} />
+//       <Hero jump={jump} />
+//       <Solutions />
+//       <Why />
+//       <Projects />
+//       <Trusted />
+//       <Awards />
+//       <Contact />
+//       <Footer />
+//     </>
+//   );
+// }
+
+import { useEffect } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import "./index.css";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Solutions from "./components/Solutions";
+import SolutionsByIndustry from "./components/SolutionsByIndustry";
+import Why from "./components/Why";
+import Projects from "./components/Projects";
+import Trusted from "./components/Trusted";
+import Awards from "./components/Awards";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import HotelPage from "./pages/HotelPage";
+import EVChargerPage from "./pages/EVChargerPage";
+
+function HomePage({ jump }) {
   return (
     <>
-      <Header jump={jump} />
       <Hero jump={jump} />
       <Solutions />
+      <SolutionsByIndustry />
       <Why />
       <Projects />
       <Trusted />
       <Awards />
       <Contact />
+    </>
+  );
+}
+
+export default function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // ถ้าอยู่หน้าอื่น ให้กลับหน้าแรกก่อนแล้วค่อยเลื่อนไปยัง section
+  const jump = (id) => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  useEffect(() => {
+    const id = location.state?.scrollTo;
+    if (id) {
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  return (
+    <>
+      <Header jump={jump} />
+      <Routes>
+        <Route path="/" element={<HomePage jump={jump} />} />
+        <Route path="/hotel" element={<HotelPage />} />
+        <Route path="/ev-charger" element={<EVChargerPage />} />
+      </Routes>
       <Footer />
     </>
   );

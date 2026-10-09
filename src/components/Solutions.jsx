@@ -4,8 +4,10 @@ export default function Solutions() {
       <div className="wrap">
         <div className="section-head">
           <div>
-            <div className="eyebrow">OUR SOLUTIONS</div>
-            <h2>เทคโนโลยีที่เราออกแบบ<br />ให้ทำงานร่วมกัน</h2>
+            {/* <div className="eyebrow">OUR SOLUTIONS</div>
+            <h2>เทคโนโลยีที่เราออกแบบ<br />ให้ทำงานร่วมกัน</h2> */}
+            <div className="eyebrow">OUR TECHNOLOGY / PRODUCTS</div>
+            <h2>เทคโนโลยีและผลิตภัณฑ์ของเรา</h2>
             <p className="lede">
             จากการผลิตพลังงาน ไปจนถึงการจัดการและการใช้งาน เรารวบรวมโซลูชันไว้ในระบบเดียว
             เพื่อให้ธุรกิจมองเห็นและบริหารพลังงานได้ง่ายขึ้น
