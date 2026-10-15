@@ -80,13 +80,22 @@ export default function App() {
   const location = useLocation();
 
   // ถ้าอยู่หน้าอื่น ให้กลับหน้าแรกก่อนแล้วค่อยเลื่อนไปยัง section
+  // const jump = (id) => {
+  //   if (location.pathname !== "/") {
+  //     navigate("/", { state: { scrollTo: id } });
+  //     return;
+  //   }
+  //   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  // };
+
   const jump = (id) => {
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: id } });
-      return;
-    }
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+  navigate("/", { state: { scrollTo: id } });
+};
 
   useEffect(() => {
     const id = location.state?.scrollTo;
@@ -111,3 +120,5 @@ export default function App() {
     </>
   );
 }
+
+
