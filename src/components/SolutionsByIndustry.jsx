@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
-function HotelIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-      <rect x="5" y="3" width="14" height="18" rx="1.5" stroke="#F2F2F7" strokeWidth="1.6" />
-      <path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" stroke="#F2F2F7" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M10.5 21v-3h3v3" stroke="#F2F2F7" strokeWidth="1.6" strokeLinejoin="round" />
-    </svg>
-  );
-}
+// function HotelIcon() {
+//   return (
+//     <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+//       <rect x="5" y="3" width="14" height="18" rx="1.5" stroke="#F2F2F7" strokeWidth="1.6" />
+//       <path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" stroke="#F2F2F7" strokeWidth="1.6" strokeLinecap="round" />
+//       <path d="M10.5 21v-3h3v3" stroke="#F2F2F7" strokeWidth="1.6" strokeLinejoin="round" />
+//     </svg>
+//   );
+// }
 
 function EVIcon() {
   return (
@@ -20,15 +20,15 @@ function EVIcon() {
 }
 
 const INDUSTRIES = [
-  {
-    key: "hotel",
-    Icon: HotelIcon,
-    tag: "HOTEL & RESORT",
-    title: "Hotel & Resort Smart Energy",
-    desc: "ระบบจัดการพลังงานสำหรับโรงแรม ลดค่าไฟแอร์และแสงสว่าง คุมเปิด-ปิดอัตโนมัติ พร้อม Dashboard ติดตามผล Real-time เพื่อเพิ่มกำไรให้ธุรกิจ",
-    cta: "ดูข้อเสนอสำหรับโรงแรม (Hotel Proposal)",
-    to: "/hotel",
-  },
+  // {
+  //   key: "hotel",
+  //   Icon: HotelIcon,
+  //   tag: "HOTEL & RESORT",
+  //   title: "Hotel & Resort Smart Energy",
+  //   desc: "ระบบจัดการพลังงานสำหรับโรงแรม ลดค่าไฟแอร์และแสงสว่าง คุมเปิด-ปิดอัตโนมัติ พร้อม Dashboard ติดตามผล Real-time เพื่อเพิ่มกำไรให้ธุรกิจ",
+  //   cta: "ดูข้อเสนอสำหรับโรงแรม (Hotel Proposal)",
+  //   to: "/hotel",
+  // },
   {
     key: "ev",
     Icon: EVIcon,

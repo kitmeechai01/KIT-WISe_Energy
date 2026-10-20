@@ -151,7 +151,7 @@ export default function EVChargerPage() {
       <section className="ev-hero">
         <div className="wrap">
           <div className="eyebrow">EV CHARGER SOLUTIONS</div>
-          <h1>ระบบชาร์จ EV<br />สำหรับคอนโด โรงแรม และอาคาร</h1>
+          <h1>ระบบชาร์จ EV<br />สำหรับคอนโด บ้าน โรงแรม และอาคาร</h1>
           <p className="lede">
             บริการสำรวจ ออกแบบ ติดตั้งสถานีชาร์จ EV ครบวงจร พร้อมระบบบริหารจัดการและเรียกเก็บเงิน
             เลือกรูปแบบที่เหมาะกับพื้นที่ของคุณ
