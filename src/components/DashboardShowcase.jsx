@@ -8,7 +8,7 @@ const DASHBOARDS = [
     id: "usage",
     title: "KMC Facility Management",
     desc: "ดูปริมาณการใช้ไฟฟ้าแบบเรียลไทม์ พร้อมย้อนดูประวัติเป็นชั่วโมง วัน เดือน และปี เพื่อรู้ว่าไฟถูกใช้ไปที่ไหนและเมื่อไหร่",
-    image: "/assets/kmce_fac.png",
+    image: "/assets/kmcefac.png",
   },
 //   {
 //     id: "control",
@@ -20,19 +20,19 @@ const DASHBOARDS = [
     id: "alerts",
     title: "Safety Alerts",
     desc: "แจ้งเตือนทันทีเมื่อพบความเสี่ยง เช่น ไฟรั่ว กระแสเกิน แรงดันผิดปกติ หรือประกายไฟอาร์ค รวมถึงเมื่ออุปกรณ์ไม่ทำงาน",
-    image: "/assets/kmce_mornitor.jpeg",
+    image: "/assets/kmcemornitor.jpeg",
   },
   {
     id: "ev",
     title: "EV Charging",
     desc: "ดูสถานะการชาร์จของแต่ละจุด ควบคุมสถานะการชาร์จ และเปิดดูประวัติการชาร์จย้อนหลัง",
-    image: "/assets/web_ev.jpeg",
+    image: "/assets/webev.jpeg",
   },
   {
     id: "billing",
     title: "Billing & Reports",
     desc: "แดชบอร์ดสำหรับดูการใช้พลังงาน การใช้ไฟ และยอดค่าใช้จ่าย พร้อมทั้งดูสถานนะอุปกรณ์ได้ ",
-    image: "/assets/mock_Pzent.jpeg",
+    image: "/assets/mockPzent.jpeg",
   },
   {
     id: "admin",
