@@ -162,8 +162,26 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
 .ev-cost-list p{color:var(--ink); font-size:15px;}
 
 .industries{padding-top:clamp(10px,3vw,30px); padding-bottom:clamp(70px,9vw,120px);}
-.industry-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
-.industry-card{background:var(--sky-tint); border:1px solid var(--line); border-radius:24px; padding:clamp(28px,4vw,44px); display:flex; flex-direction:column; gap:18px; transition:transform .25s ease, box-shadow .25s ease;}
+.industry-grid {
+  display: flex;
+  justify-content: center;
+  /* ให้กรอบ Grid อยู่กึ่งกลางหน้าจอและจำกัดความกว้างสูงสุด */
+  max-width: 800px; 
+  margin: 0 auto;
+}
+.industry-card {
+  width: 100%; /* ให้การ์ดขยายเต็มพื้นที่ที่มี */
+  background: var(--sky-tint); 
+  border: 1px solid var(--line); 
+  border-radius: 24px; 
+  padding: clamp(28px, 4vw, 44px); 
+  display: flex; 
+  flex-direction: column; 
+  gap: 18px; 
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+/* .industry-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+.industry-card{background:var(--sky-tint); border:1px solid var(--line); border-radius:24px; padding:clamp(28px,4vw,44px); display:flex; flex-direction:column; gap:18px; transition:transform .25s ease, box-shadow .25s ease;} */
 .industry-card:hover{transform:translateY(-6px); box-shadow:0 26px 40px -22px rgba(0,8,99,0.35);}
 .ind-icon{width:64px; height:64px; border-radius:18px; background:var(--navy); display:flex; align-items:center; justify-content:center;}
 .ind-tag{align-self:flex-start; font-size:12px; font-weight:700; letter-spacing:0.08em; padding:7px 14px; border-radius:20px; background:rgba(0,8,99,0.08); color:var(--navy);}
