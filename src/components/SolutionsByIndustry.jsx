@@ -48,11 +48,11 @@ export default function SolutionsByIndustry() {
           <div>
             <div className="eyebrow">SOLUTIONS BY INDUSTRY</div>
             <h2>โซลูชันที่ออกแบบ<br />ตามประเภทธุรกิจ</h2>
+            <p className="lede">
+              เลือกโซลูชันที่ตรงกับธุรกิจของคุณได้ทันที ไม่ต้องเดาว่าต้องใช้ผลิตภัณฑ์ตัวไหน
+              เราจัดชุดโซลูชันที่พร้อมใช้งานไว้ให้แล้ว
+            </p>
           </div>
-          <p className="lede">
-            เลือกโซลูชันที่ตรงกับธุรกิจของคุณได้ทันที ไม่ต้องเดาว่าต้องใช้ผลิตภัณฑ์ตัวไหน
-            เราจัดชุดโซลูชันที่พร้อมใช้งานไว้ให้แล้ว
-          </p>
         </div>
         <div className="industry-grid">
           {INDUSTRIES.map(({ key, Icon, tag, title, desc, cta, to }) => (

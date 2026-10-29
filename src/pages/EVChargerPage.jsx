@@ -92,12 +92,12 @@ const MODELS = [
 ];
 
 const PRODUCTS = [
-  { name: "THE KIT-WISe Station", power: "7 / 22 kW", image: null, auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "THE KIT-WISe Mini Station", power: "7 / 22 kW", image: null, auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "THE KIT-WISe AIR", power: "7 / 22 kW", image: null, auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "THE KIT-WISe Outlet", power: "3.7 kW", image: null, auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 16A)" },
-  { name: "THE KIT-WISe AIR EV+", power: "7 / 22 kW", image: null, auth: "QR Code / แอป", features: ["Metering + Billing", "บริหารหลายหัวชาร์จ"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "THE KIT-WISe EV Hub", power: "ศูนย์รวมหัวชาร์จ", image: null, auth: null, features: ["บริหารหลายหัวชาร์จจากศูนย์กลาง"], fit: "ใช้งานร่วมกับ KIT-WISe 3Ph 4P" },
+  { name: "KIT-WISe Full Station", power: "7 / 22 kW", image: null, auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe Mini Station", power: "7 / 22 kW", image: null, auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe EV AIR", power: "7 / 22 kW", image: null, auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe Outlet", power: "3.7 kW", image: null, auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 16A)" },
+  { name: "KIT-WISe EV AIR+", power: "7 / 22 kW", image: null, auth: "QR Code / แอป", features: ["Metering + Billing", "บริหารหลายหัวชาร์จ"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe EV AIR+ ULTRA", power: "ศูนย์รวมหัวชาร์จ", image: null, auth: null, features: ["บริหารหลายหัวชาร์จจากศูนย์กลาง"], fit: "ใช้งานร่วมกับ KIT-WISe 3Ph 4P" },
 ];
 
 const STEPS = [
@@ -161,6 +161,22 @@ export default function EVChargerPage() {
             <Link to="/" state={{ scrollTo: "projects" }} className="btn btn-outline">ดูผลงานติดตั้งจริง</Link>
           </div>
         </div>
+        <video
+            className="ev-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/assets/ev-hero-poster.jpg"
+            aria-hidden="true"
+          >
+          <source src="/assets/Video/ev-hero.mp4" type="video/mp4" />
+        </video>
+          <div className="ev-hero-overlay" aria-hidden="true" />
+
+          <div className="wrap">
+            {/* eyebrow, h1, lede, ปุ่ม ของเดิมทั้งหมด */}
+          </div>
       </section>
 
       <section className="ev-section">
@@ -169,8 +185,8 @@ export default function EVChargerPage() {
             <div>
               <div className="eyebrow">WHY KIT-WISe EV</div>
               <h2>ออกแบบมาเพื่อ<br />การชาร์จหลายคัน</h2>
+              <p  className="lede"><br />ไม่ใช่แค่หัวชาร์จ แต่เป็นระบบที่ดูแลตั้งแต่ความปลอดภัย การเรียกเก็บเงิน ไปจนถึงการเฝ้าระวังหลังติดตั้ง</p>
             </div>
-            <p  className="lede"><br />ไม่ใช่แค่หัวชาร์จ แต่เป็นระบบที่ดูแลตั้งแต่ความปลอดภัย การเรียกเก็บเงิน ไปจนถึงการเฝ้าระวังหลังติดตั้ง</p>
           </div>
           <div className="ev-grid-3">
             {FEATURES.map((f) => (
@@ -190,8 +206,8 @@ export default function EVChargerPage() {
             <div>
               <div className="eyebrow">INSTALLATION MODELS</div>
               <h2>รูปแบบการติดตั้ง<br />เลือกให้เหมาะกับพื้นที่</h2>
+              <p className="lede">แต่ละรูปแบบมีข้อดีและขอบเขตงานต่างกัน ปรับขนาดและจำนวนจุดชาร์จได้ตามหน้างาน</p>
             </div>
-            <p className="lede">แต่ละรูปแบบมีข้อดีและขอบเขตงานต่างกัน ปรับขนาดและจำนวนจุดชาร์จได้ตามหน้างาน</p>
           </div>
           <div className="ev-models-grid">
             {MODELS.map((m) => (
@@ -213,9 +229,9 @@ export default function EVChargerPage() {
     <div className="section-head">
       <div>
         <div className="eyebrow">SMART LOAD SHARING</div>
-        <h2>เพิ่มจุดชาร์จได้<br />ด้วยกำลังไฟเท่าเดิม</h2>
+        <h2>เพิ่มจุดชาร์จได้<br/>ด้วยกำลังไฟเท่าเดิม</h2>
+        <p className="lede">เหมาะกับคอนโดและโครงการที่อยู่อาศัยรวมที่ผู้อยู่อาศัยจะทยอยใช้รถ EV ไม่พร้อมกันทั้งหมด</p>
       </div>
-      <p className="lede">เหมาะกับคอนโดและโครงการที่อยู่อาศัยรวมที่ผู้อยู่อาศัยจะทยอยใช้รถ EV ไม่พร้อมกันทั้งหมด</p>
     </div>
     <ul className="ev-cost-list">
       {LOAD_POINTS.map((c) => (
@@ -234,8 +250,8 @@ export default function EVChargerPage() {
             <div>
               <div className="eyebrow">BILLING SCHEMES</div>
               <h2>รูปแบบการเรียกเก็บ<br />ค่าชาร์จที่ยืดหยุ่น</h2>
+              <p className="lede">ผู้อยู่อาศัยแต่ละคนมีความต้องการต่างกัน จึงมีรูปแบบการเรียกเก็บให้เลือก และกำไรจากค่าชาร์จช่วยให้นิติบุคคลคืนทุนโครงสร้างพื้นฐานและใช้ดูแลระบบในอนาคต</p>
             </div>
-            <p className="lede">ผู้อยู่อาศัยแต่ละคนมีความต้องการต่างกัน จึงมีรูปแบบการเรียกเก็บให้เลือก และกำไรจากค่าชาร์จช่วยให้นิติบุคคลคืนทุนโครงสร้างพื้นฐานและใช้ดูแลระบบในอนาคต</p>
           </div>
           <div className="ev-grid-3">
             {BILLING.map((b) => (
@@ -255,8 +271,8 @@ export default function EVChargerPage() {
             <div>
               <div className="eyebrow">CHARGER LINEUP</div>
               <h2>รุ่นหัวชาร์จ<br />ให้เลือกตามการใช้งาน</h2>
+              <p className="lede">ตั้งแต่เต้ารับ 3.7kW ไปจนถึงสถานีชาร์จ 22kW และศูนย์รวมสำหรับบริหารหลายหัวชาร์จ</p>
             </div>
-            <p className="lede">ตั้งแต่เต้ารับ 3.7kW ไปจนถึงสถานีชาร์จ 22kW และศูนย์รวมสำหรับบริหารหลายหัวชาร์จ</p>
           </div>
           <div className="ev-grid-3">
             {PRODUCTS.map((p) => (
@@ -281,8 +297,8 @@ export default function EVChargerPage() {
             <div>
               <div className="eyebrow">HOW WE WORK</div>
               <h2>จากการสำรวจ<br />ถึงเริ่มใช้งานจริง</h2>
+              <p className="lede">ระยะเวลาโดยประมาณ 45–90 วัน ขึ้นกับขนาดและความซับซ้อนของโครงการ</p>
             </div>
-            <p className="lede">ระยะเวลาโดยประมาณ 45–90 วัน ขึ้นกับขนาดและความซับซ้อนของโครงการ</p>
           </div>
           <div className="steps ev-steps">
             {STEPS.map((s, i) => (
@@ -304,8 +320,8 @@ export default function EVChargerPage() {
             <div>
               <div className="eyebrow">INVESTMENT</div>
               <h2>ราคาขึ้นกับอะไรบ้าง</h2>
+              <p className="lede">ราคาของแต่ละโครงการไม่เท่ากัน เพราะขึ้นกับสภาพหน้างานเป็นหลัก ทีมงานจะสำรวจและเสนอราคาให้ตามความเหมาะสม</p>
             </div>
-            <p className="lede">ราคาของแต่ละโครงการไม่เท่ากัน เพราะขึ้นกับสภาพหน้างานเป็นหลัก ทีมงานจะสำรวจและเสนอราคาให้ตามความเหมาะสม</p>
           </div>
           <ul className="ev-cost-list">
             {COST_FACTORS.map((c) => (
