@@ -8,7 +8,7 @@ const DASHBOARDS = [
     id: "usage",
     title: "KMC Facility Management",
     desc: "ดูปริมาณการใช้ไฟฟ้าแบบเรียลไทม์ พร้อมย้อนดูประวัติเป็นชั่วโมง วัน เดือน และปี เพื่อรู้ว่าไฟถูกใช้ไปที่ไหนและเมื่อไหร่",
-    image: "public/assets/kmce_fac.png",
+    image: "/assets/kmce_fac.png",
   },
 //   {
 //     id: "control",
@@ -20,25 +20,25 @@ const DASHBOARDS = [
     id: "alerts",
     title: "Safety Alerts",
     desc: "แจ้งเตือนทันทีเมื่อพบความเสี่ยง เช่น ไฟรั่ว กระแสเกิน แรงดันผิดปกติ หรือประกายไฟอาร์ค รวมถึงเมื่ออุปกรณ์ไม่ทำงาน",
-    image: "public/assets/kmce_mornitor.jpeg",
+    image: "/assets/kmce_mornitor.jpeg",
   },
   {
     id: "ev",
     title: "EV Charging",
     desc: "ดูสถานะการชาร์จของแต่ละจุด ควบคุมสถานะการชาร์จ และเปิดดูประวัติการชาร์จย้อนหลัง",
-    image: "public/assets/web_ev.jpeg",
+    image: "/assets/web_ev.jpeg",
   },
   {
     id: "billing",
     title: "Billing & Reports",
     desc: "แดชบอร์ดสำหรับดูการใช้พลังงาน การใช้ไฟ และยอดค่าใช้จ่าย พร้อมทั้งดูสถานนะอุปกรณ์ได้ ",
-    image: "public/assets/mock Pzent.jpeg",
+    image: "/assets/mock Pzent.jpeg",
   },
   {
     id: "admin",
     title: "KITWISe-Center Console",
     desc: "ระบบบริหารผู้ใช้และพลังงานสำหรับตู้ KITWISe CENTER เช่น บ้านเดี่ยว คอนโด โรงแรม หรืออาคารสำนักงานต่างๆ พร้อมทีมเฝ้าระวังออนไลน์ 24 ชั่วโมง",
-    image: "public/assets/Center.jpeg",
+    image: "/assets/Center.jpeg",
   },
 ];
 
