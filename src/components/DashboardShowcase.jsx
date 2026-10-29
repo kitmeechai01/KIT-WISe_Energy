@@ -32,7 +32,7 @@ const DASHBOARDS = [
     id: "billing",
     title: "Billing & Reports",
     desc: "แดชบอร์ดสำหรับดูการใช้พลังงาน การใช้ไฟ และยอดค่าใช้จ่าย พร้อมทั้งดูสถานนะอุปกรณ์ได้ ",
-    image: "/assets/mock Pzent.jpeg",
+    image: "/assets/mock_Pzent.jpeg",
   },
   {
     id: "admin",
