@@ -19,7 +19,7 @@ function Icon({ name }) {
     stroke: "#F2F2F7", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round",
   };
   switch (name) {
-    case "bolt":
+        case "bolt":
       return <svg {...p}><path d="M13 2 5 13h5l-1 9 8-11h-5l1-9Z" /></svg>;
     case "shield":
       return <svg {...p}><path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z" /><path d="M9 12l2 2 4-4" /></svg>;
@@ -31,6 +31,22 @@ function Icon({ name }) {
       return <svg {...p}><path d="M8 3v6M16 3v6M6 9h12v4a6 6 0 0 1-12 0V9Z" /><path d="M12 19v3" /></svg>;
     case "clock":
       return <svg {...p}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>;
+    case "building":
+      return <svg {...p}><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M9 7h2M14 7h2M9 11h2M14 11h2M9 15h2M14 15h2M10 21v-3h4v3" /></svg>;
+    case "car":
+      return <svg {...p}><path d="m5 11 2-5h10l2 5" /><path d="M3 11h18v7H3zM6 18v2M18 18v2M6 14h2M16 14h2" /></svg>;
+    case "network":
+      return <svg {...p}><circle cx="12" cy="5" r="2.5" /><circle cx="5" cy="18" r="2.5" /><circle cx="19" cy="18" r="2.5" /><path d="m10.8 7.2-4.5 8.5M13.2 7.2l4.5 8.5M7.5 18h9" /></svg>;
+    case "wallet":
+      return <svg {...p}><rect x="3" y="5" width="18" height="15" rx="2" /><path d="M3 9h18M16 14h.01M6 5V3h12v2" /></svg>;
+    case "map":
+      return <svg {...p}><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z" /><path d="M9 3v15M15 6v15" /></svg>;
+    case "chart":
+      return <svg {...p}><path d="M3 3v18h18M7 15l4-4 3 2 6-7" /><path d="M16 6h4v4" /></svg>;
+    case "users":
+      return <svg {...p}><circle cx="9" cy="8" r="3" /><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 4v2" /></svg>;
+    case "cable":
+      return <svg {...p}><path d="M8 3v5M16 3v5M6 8h12v3a6 6 0 0 1-12 0V8ZM12 17v4M9 21h6" /></svg>;
     default:
       return null;
   }
@@ -160,6 +176,11 @@ export default function EVChargerPage() {
             <button className="btn btn-solid" onClick={goContact}>ขอใบเสนอราคา</button>
             <Link to="/" state={{ scrollTo: "projects" }} className="btn btn-outline">ดูผลงานติดตั้งจริง</Link>
           </div>
+          <div className="ev-hero-points" aria-label="บริการหลัก">
+            <span><i><Icon name="shield" /></i> ออกแบบระบบปลอดภัย</span>
+            <span><i><Icon name="network" /></i> บริหารหลายจุดชาร์จ</span>
+            <span><i><Icon name="clock" /></i> ดูแลระบบออนไลน์</span>
+          </div>
         </div>
         <video
             className="ev-hero-video"
@@ -212,7 +233,11 @@ export default function EVChargerPage() {
           <div className="ev-models-grid">
             {MODELS.map((m) => (
               <div className="ev-model" key={m.key}>
-                <span className="tag">{m.tag}</span>
+                <div className="ev-model-visual">
+                  <div className="ev-model-symbol"><Icon name={m.icon} /></div>
+                  <span className="tag">{m.tag}</span>
+                  <div className="ev-model-orbit" aria-hidden="true" />
+                </div>
                 <h3>{m.title}</h3>
                 <p>{m.desc}</p>
                 <div className="ev-best"><strong>เหมาะกับ:</strong> {m.bestFor}</div>
@@ -236,8 +261,11 @@ export default function EVChargerPage() {
     <ul className="ev-cost-list">
       {LOAD_POINTS.map((c) => (
         <li key={c.title}>
+          <div className="ev-cost-icon"><Icon name={c.icon || "bolt"} /></div>
+          <div className="ev-cost-copy">
           <h3>{c.title}</h3>
           <p>{c.desc}</p>
+          </div>
         </li>
       ))}
     </ul>
@@ -255,8 +283,11 @@ export default function EVChargerPage() {
           </div>
           <div className="ev-grid-3">
             {BILLING.map((b) => (
-              <div className="ev-feature" key={b.tag}>
-                <span className="ev-billing-tag">{b.tag}</span>
+              <div className="ev-feature ev-billing-card" key={b.tag}>
+                <div className="ev-feature-top">
+                  <div className="ev-icon"><Icon name={b.tag === "STANDARD" ? "clock" : b.tag === "PRIORITY" ? "bolt" : "wallet"} /></div>
+                  <span className="ev-billing-tag">{b.tag}</span>
+                </div>
                 <h3>{b.title}</h3>
                 <p>{b.desc}</p>
               </div>
