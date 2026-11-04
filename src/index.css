@@ -339,6 +339,68 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
 .ev-steps .step p{line-height:1.7}
 .ev-steps .step:last-child{border-bottom:0}
 .ev-section .ev-cost-list + *{margin-top:24px}
+/* ตั้งค่าการ์ดหลัก */
+.ev-product-hover-flip {
+  position: relative;
+  overflow: hidden;
+  /* หากการ์ดมี padding เดิม สามารถคงไว้ได้ครับ */
+}
+
+/* 1. ส่วนข้อมูลปกติ (แสดงตอนปกติ, ซ่อนตอนชี้เมาส์) */
+.ev-product-content-side {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+
+/* 2. ส่วนรูปภาพ: ให้เต็มพื้นที่การ์ดแบบ cover */
+.ev-product-image-side {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #050b38; /* สีพื้นหลังเผื่อรูปโหลดหรือสัดส่วนไม่เต็ม */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  border-radius: inherit; /* ให้โค้งมนตามการ์ดเดิม */
+}
+
+.ev-product-image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* บังคับให้รูปภาพขยายเต็มพื้นที่การ์ดพอดี ไม่เหลือขอบขาว */
+}
+
+.ev-product-visual-label {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.4); /* เพิ่มพื้นหลังโปร่งแสงเล็กน้อยให้อ่านตัวหนังสือชัดขึ้นบนภาพ */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.ev-product-visual-label b{color:#fff;}
+
+/* --- เมื่อเอาเมาส์ชี้ที่การ์ด --- */
+.ev-product-hover-flip:hover .ev-product-content-side,
+.ev-product-hover-flip:focus-within .ev-product-content-side {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ev-product-hover-flip:hover .ev-product-image-side,
+.ev-product-hover-flip:focus-within .ev-product-image-side {
+  opacity: 1;
+  visibility: visible;
+}
 @media(max-width:980px){
  .ev-models-grid{grid-template-columns:1fr}
  .ev-model-visual{height:112px}

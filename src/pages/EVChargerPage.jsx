@@ -108,12 +108,12 @@ const MODELS = [
 ];
 
 const PRODUCTS = [
-  { name: "KIT-WISe Full Station", power: "7 / 22 kW", image: null, auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "KIT-WISe Mini Station", power: "7 / 22 kW", image: null, auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "KIT-WISe EV AIR", power: "7 / 22 kW", image: null, auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "KIT-WISe Outlet", power: "3.7 kW", image: null, auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 16A)" },
-  { name: "KIT-WISe EV AIR+", power: "7 / 22 kW", image: null, auth: "QR Code / แอป", features: ["Metering + Billing", "บริหารหลายหัวชาร์จ"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
-  { name: "KIT-WISe EV AIR+ ULTRA", power: "ศูนย์รวมหัวชาร์จ", image: null, auth: null, features: ["บริหารหลายหัวชาร์จจากศูนย์กลาง"], fit: "ใช้งานร่วมกับ KIT-WISe 3Ph 4P" },
+  { name: "KIT-WISe Full Station", power: "7 / 22 kW", image: null,hoverImage: "/assets/LINE_ALBUM_โครงการมิลเลนเนียม_260826_1.jpg", auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe Mini Station", power: "7 / 22 kW", image: null,hoverImage: "/assets/KW-MINI.jpg", auth: "บัตร / QR Code / แอป", features: ["จอแสดงสถานะ", "Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe EV AIR", power: "7 / 22 kW", image: null,hoverImage: "/assets/LINE_ALBUM_พรอสเพอร์_260826_2.jpg", auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe Outlet", power: "3.7 kW", image: null,hoverImage: "/assets/LINE_ALBUM_ROYCE_260826_1.jpg", auth: "QR Code / แอป", features: ["Metering"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 16A)" },
+  { name: "KIT-WISe EV AIR+", power: "7 / 22 kW", image: null,hoverImage: "/assets/LINE_ALBUM_Doctor Charger_260826_1.jpg", auth: "QR Code / แอป", features: ["Metering + Billing", "บริหารหลายหัวชาร์จ"], fit: "บ้านพักอาศัย สำนักงาน เชิงพาณิชย์ (กระแส ≤ 40A)" },
+  { name: "KIT-WISe EV AIR+ ULTRA", power: "ศูนย์รวมหัวชาร์จ", image: null,hoverImage: "/assets/328490_0.jpg", auth: null, features: ["บริหารหลายหัวชาร์จจากศูนย์กลาง"], fit: "ใช้งานร่วมกับ KIT-WISe 3Ph 4P" },
 ];
 
 const STEPS = [
@@ -307,7 +307,7 @@ export default function EVChargerPage() {
           </div>
           <div className="ev-grid-3">
             {PRODUCTS.map((p) => (
-              <div className="ev-product" key={p.name}>
+              <div className="ev-product ev-product-hover-flip" key={p.name}>
                 {p.image && <img src={p.image} alt={p.name} className="ev-product-img" />}
                 <span className="ev-power">{p.power}</span>
                 <h3>{p.name}</h3>
@@ -316,6 +316,14 @@ export default function EVChargerPage() {
                   <div><dt>ฟังก์ชัน</dt><dd>{p.features.join(" · ")}</dd></div>
                   <div><dt>เหมาะกับ</dt><dd>{p.fit}</dd></div>
                 </dl>
+                <div className="ev-product-image-side">
+                  <img src={p.hoverImage || p.image} alt={p.name} />
+                  <span className="ev-product-visual-label">KIT-WISe <b>EV CHARGING</b></span>
+                </div>
+                <div className="ev-product-image-side">
+                  <img src={p.hoverImage || p.image} alt={p.name} />
+                  <span className="ev-product-visual-label">{p.name}</span>
+                </div>
               </div>
             ))}
           </div>
