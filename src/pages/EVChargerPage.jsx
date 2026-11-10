@@ -66,26 +66,25 @@ const MODELS = [
     key: "shared",
     tag: "SHARED CHARGING",
     title: "จุดชาร์จส่วนกลาง",
+    icon: "users", // <--- ชื่อไอคอนสำหรับ Shared (ปรับเปลี่ยนตามไลบรารีไอคอนของคุณได้ เช่น "users", "share", "grid")
     desc: "วางจุดชาร์จไว้ที่ช่องจอดส่วนกลาง ใช้ร่วมกันและให้บริการบุคคลภายนอกได้ ชาร์จสูงสุด 22kW (ตัวอย่างการออกแบบ: 2 ช่องจอดพร้อมกัน)",
     bestFor: "คอนโด โรงแรม และอาคารที่ต้องการให้บริการแขกหรือบุคคลภายนอก",
-    // points: [
-    //   "ติดตั้งเพียงไม่กี่จุด เริ่มต้นได้ง่าย",
-    //   "มีระบบเรียกเก็บเงินและแอปสำหรับเจ้าของรถ",
-    //   "เหมาะกับการบริการส่วนกลาง ไม่ใช่การชาร์จประจำที่จอดของแต่ละห้อง",
-    // ],
+    bgImage: "/assets/ev-model-shared.jpg",
     points: [
-  "ลงโครงสร้างพื้นฐานล่วงหน้า 100% หรือ 50% ตามงบประมาณ แล้วเพิ่มจุดชาร์จเมื่อผู้อยู่อาศัยต้องการ",
-  "แบบ 100% ค่าติดตั้งจุดชาร์จเท่ากันทุกที่จอด ส่วนแบบ 50% ค่าติดตั้งจะขึ้นกับระยะสายถึงที่จอด",
-  "ไม่ต้องใช้ Wall-box ติดหน้าที่จอด",
-  "ยืนยันตัวตนได้หลายวิธี และดูการใช้งานแบบ Real-time",
-],
+      "ลงโครงสร้างพื้นฐานล่วงหน้า 100% หรือ 50% ตามงบประมาณ แล้วเพิ่มจุดชาร์จเมื่อผู้อยู่อาศัยต้องการ",
+      "แบบ 100% ค่าติดตั้งจุดชาร์จเท่ากันทุกที่จอด ส่วนแบบ 50% ค่าติดตั้งจะขึ้นกับระยะสายถึงที่จอด",
+      "ไม่ต้องใช้ Wall-box ติดหน้าที่จอด",
+      "ยืนยันตัวตนได้หลายวิธี และดูการใช้งานแบบ Real-time",
+    ],
   },
   {
     key: "private",
     tag: "PRIVATE CHARGING",
     title: "ชาร์จส่วนตัวประจำช่องจอด",
-    desc: "ติดตั้งศูนย์ควบคุม KIT-WISe ประจำแต่ละชั้น เชื่อมกับศูนย์กลาง ผู้อยู่อาศัยแต่ละรายมีจุดชาร์จประจำที่จอดของตัวเอง 7kW (ตัวอย่างการออกแบบ: ชาร์จพร้อมกัน 15–20 คัน)",
+    icon: "car", // <--- ชื่อไอคอนสำหรับ Private (เช่น "home", "shield", "user")
+    desc: "ติดตั้งศูนย์ควบคุม KIT-WISe ประจำแต่ละชั้น เชื่อมกับศูนย์กลาง ผู้อยู่อาศัยแต่ละรายมีจุดชาร์จประจำที่จอดของตัวเอง 7kW (ตัวอย่างการออกแบบ:ชาร์จพร้อมกัน 15–20 คัน)",
     bestFor: "คอนโดและหมู่บ้านที่ผู้อยู่อาศัยหลายรายต้องการชาร์จที่จอดของตัวเอง",
+    bgImage: "/assets/ev-model-private.jpg",
     points: [
       "ลงโครงสร้างพื้นฐานล่วงหน้า แล้วให้ผู้อยู่อาศัยสมัครติดตั้งจุดชาร์จเพิ่มภายหลัง",
       "ค่าติดตั้งจุดชาร์จเท่ากันทุกตำแหน่งที่จอด",
@@ -97,8 +96,10 @@ const MODELS = [
     key: "hub",
     tag: "PUBLIC CHARGING HUB",
     title: "สถานีชาร์จบริการลูกค้า",
+    icon: "bolt", // <--- ชื่อไอคอนสำหรับ Hub (เช่น "zap", "battery-charging", "compass", "globe")
     desc: "ศูนย์ควบคุม KIT-WISe Hub ต่อหัวชาร์จได้หลายหัว (ตัวอย่างการออกแบบ: 5 หัว) กำลังรวม 22kW พร้อมระบบหลังบ้านคิดค่าชาร์จและค่าที่จอด",
     bestFor: "โรงแรม รีสอร์ท ห้างสรรพสินค้า และพื้นที่เชิงพาณิชย์",
+    bgImage: "/assets/ev-model-hub.jpg",
     points: [
       "งบประมาณไม่สูง แต่ใช้กำลังไฟได้เต็มความจุ",
       "ระบบหลังบ้าน (Backoffice) คิดทั้งค่าชาร์จและค่าที่จอด",
@@ -222,33 +223,37 @@ export default function EVChargerPage() {
       </section>
 
       <section className="ev-section alt">
-        <div className="wrap">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow">INSTALLATION MODELS</div>
-              <h2>รูปแบบการติดตั้ง<br />เลือกให้เหมาะกับพื้นที่</h2>
-              <p className="lede">แต่ละรูปแบบมีข้อดีและขอบเขตงานต่างกัน ปรับขนาดและจำนวนจุดชาร์จได้ตามหน้างาน</p>
-            </div>
-          </div>
-          <div className="ev-models-grid">
-            {MODELS.map((m) => (
-              <div className="ev-model" key={m.key}>
-                <div className="ev-model-visual">
-                  <div className="ev-model-symbol"><Icon name={m.icon} /></div>
-                  <span className="tag">{m.tag}</span>
-                  <div className="ev-model-orbit" aria-hidden="true" />
-                </div>
-                <h3>{m.title}</h3>
-                <p>{m.desc}</p>
-                <div className="ev-best"><strong>เหมาะกับ:</strong> {m.bestFor}</div>
-                <ul>
-                  {m.points.map((pt) => <li key={pt}>{pt}</li>)}
-                </ul>
-              </div>
-            ))}
+      <div className="wrap">
+        <div className="section-head">
+          <div>
+            <div className="eyebrow">INSTALLATION MODELS</div>
+            <h2>รูปแบบการติดตั้ง<br />เลือกให้เหมาะกับพื้นที่</h2>
+            <p className="lede">แต่ละรูปแบบมีข้อดีและขอบเขตงานต่างกัน ปรับขนาดและจำนวนจุดชาร์จได้ตามหน้างาน</p>
           </div>
         </div>
-      </section>
+        <div className="ev-models-grid">
+          {MODELS.map((m) => (
+            <div className="ev-model" key={m.key}>
+              <div 
+                className="ev-model-visual" 
+                style={{ backgroundImage: `url(${m.bgImage})` }}
+              >
+                {/* ดึงค่า icon จาก m.icon มาแสดงผลแบบไดนามิก */}
+                <div className="ev-model-symbol"><Icon name={m.icon} /></div>
+                <span className="tag">{m.tag}</span>
+                <div className="ev-model-orbit" aria-hidden="true" />
+              </div>
+              <h3>{m.title}</h3>
+              <p>{m.desc}</p>
+              <div className="ev-best"><strong>เหมาะกับ:</strong> {m.bestFor}</div>
+              <ul>
+                {m.points.map((pt) => <li key={pt}>{pt}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
       <section className="ev-section">
   <div className="wrap">
     <div className="section-head">
@@ -322,7 +327,7 @@ export default function EVChargerPage() {
                 </div>
                 <div className="ev-product-image-side">
                   <img src={p.hoverImage || p.image} alt={p.name} />
-                  <span className="ev-product-visual-label">{p.name}</span>
+                  <span className="ev-product-visual-label">KIT-WISe <b>EV CHARGING</b></span>
                 </div>
               </div>
             ))}
