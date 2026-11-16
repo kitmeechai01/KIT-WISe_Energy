@@ -47,6 +47,12 @@ function Icon({ name }) {
       return <svg {...p}><circle cx="9" cy="8" r="3" /><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 4v2" /></svg>;
     case "cable":
       return <svg {...p}><path d="M8 3v5M16 3v5M6 8h12v3a6 6 0 0 1-12 0V8ZM12 17v4M9 21h6" /></svg>;
+    case "parking":
+      return <svg {...p}><rect x="3" y="3" width="18" height="18" rx="5" /><path d="M9.5 17V7.5h3.6a3.2 3.2 0 0 1 0 6.4H9.5" /></svg>;
+    case "home":
+      return <svg {...p}><path d="M3 11.5 12 4l9 7.5" /><path d="M5.5 10v10h13V10" /><path d="M12.8 11 9.6 15.2h2.4l-.8 3.8 3.4-4.6h-2.4l.6-3.4Z" fill="#F2F2F7" /></svg>;
+    case "connector":
+      return <svg {...p}><rect x="6.5" y="2.8" width="11" height="9.6" rx="3.6" /><path d="M12.8 5.2 10.4 8.4h1.9l-.7 2.1 2.7-3.3h-1.9l.4-2Z" fill="#F2F2F7" /><path d="M12 12.4v2.2c0 3.2-2.3 5-5.6 5H4.5" /></svg>;
     default:
       return null;
   }
@@ -126,11 +132,11 @@ const STEPS = [
 ];
 
 const COST_FACTORS = [
-  { title: "จำนวนจุดชาร์จและกำลังไฟ", desc: "7kW หรือ 22kW และจำนวนช่องจอดที่ต้องการชาร์จพร้อมกัน" },
-  { title: "ระยะทางเดินสาย", desc: "ระยะจากตู้ไฟหลัก (MDB) ถึงจุดชาร์จ ค่าเดินสายและรางสายมักเป็นสัดส่วนหลักของงบ" },
-  { title: "สภาพหน้างาน", desc: "เส้นทางร้อยท่อ เดินลอยหรือฝังพื้น และงานก่อสร้างที่จำเป็น" },
-  { title: "ระบบไฟฟ้าเดิม", desc: "ตู้ MDB และเบรกเกอร์ที่ต้องปรับปรุงเพื่อรองรับโหลดเพิ่ม" },
-  { title: "ระบบบริหารและเรียกเก็บเงิน", desc: "ระบบหลังบ้านสำหรับคิดค่าชาร์จและค่าที่จอด (ถ้าต้องการ)" },
+  { title: "จำนวนจุดชาร์จและกำลังไฟ", desc: "7kW หรือ 22kW และจำนวนช่องจอดที่ต้องการชาร์จพร้อมกัน", image: "/assets/LINE_ALBUM_โครงการมิลเลนเนียม_260826_2.jpg" },
+  { title: "ระยะทางเดินสาย", desc: "ระยะจากตู้ไฟหลัก (MDB) ถึงจุดชาร์จ ค่าเดินสายและรางสายมักเป็นสัดส่วนหลักของงบ", image: "/assets/LINE_ALBUM_ช่างไฟฟ้า แสนดี_260826_1.jpg" },
+  { title: "สภาพหน้างาน", desc: "เส้นทางร้อยท่อ เดินลอยหรือฝังพื้น และงานก่อสร้างที่จำเป็น", image: "/assets/LINE_ALBUM_พรอสเพอร์_260826_1.jpg" },
+  { title: "ระบบไฟฟ้าเดิม", desc: "ตู้ MDB และเบรกเกอร์ที่ต้องปรับปรุงเพื่อรองรับโหลดเพิ่ม", image: "/assets/LINE_ALBUM_ESARA @CDC_260826_3.jpg" },
+  { title: "ระบบบริหารและเรียกเก็บเงิน", desc: "ระบบหลังบ้านสำหรับคิดค่าชาร์จและค่าที่จอด (ถ้าต้องการ)", image: "/assets/webev.jpeg" },
 ];
 
 const LOAD_POINTS = [
@@ -369,9 +375,15 @@ export default function EVChargerPage() {
           </div>
           <ul className="ev-cost-list">
             {COST_FACTORS.map((c) => (
-              <li key={c.title}>
-                <h3>{c.title}</h3>
-                <p>{c.desc}</p>
+              <li className="ev-product-hover-flip" key={c.title}>
+                <div className="ev-product-content-side">
+                  <h3>{c.title}</h3>
+                  <p>{c.desc}</p>
+                </div>
+                <div className="ev-product-image-side">
+                  <img src={c.image} alt={c.title} />
+                  <span className="ev-product-visual-label">KIT-WISe <b>EV CHARGING</b></span>
+                </div>
               </li>
             ))}
           </ul>
