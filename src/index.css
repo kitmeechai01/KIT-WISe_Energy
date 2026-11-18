@@ -767,9 +767,9 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
 .ev-info .ig-bar{transform-box:fill-box;transform-origin:50% 100%;animation:igBar 2.4s ease-in-out infinite}
 .ev-info .ig-bar.d2{animation-delay:.3s}.ev-info .ig-bar.d3{animation-delay:.6s}.ev-info .ig-bar.d4{animation-delay:.9s}
 @keyframes igBar{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
-.ev-info .ig-flow{animation:igFlow 1s linear infinite}
+.ev-info .ig-flow{animation:igFlow 3s linear infinite}
 .ev-info .ig-flow.up{animation-direction:reverse}
-@keyframes igFlow{to{stroke-dashoffset:-22}}
+@keyframes igFlow{to{stroke-dashoffset:-60}}
 .ev-info .ig-pulse{animation:igPulse 1.6s ease-in-out infinite}
 .ev-info .ig-pulse.d2{animation-delay:.5s}
 @keyframes igPulse{0%,100%{opacity:1}50%{opacity:.25}}
@@ -783,3 +783,34 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
 .ev-info .ig-coin{transform-box:fill-box;transform-origin:center;animation:igCoin 2.8s ease-in-out infinite}
 @keyframes igCoin{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @media(prefers-reduced-motion:reduce){.ev-info *{animation:none!important}}
+
+/* ===== เอฟเฟคเปลี่ยนหน้าการ์ด: เลื่อนสวนทางกันแบบเดียวกับลูกศรสลับ ⇄ ===== */
+.ev-product-content-side,
+.ev-product-image-side{transition:opacity .5s ease, transform .5s cubic-bezier(.65,0,.35,1), visibility .5s;}
+.ev-product-image-side{transform:translateY(18px);}
+.ev-product-hover-flip:hover .ev-product-content-side,
+.ev-product-hover-flip:focus-within .ev-product-content-side{transform:translateY(-18px);}
+.ev-product-hover-flip:hover .ev-product-image-side,
+.ev-product-hover-flip:focus-within .ev-product-image-side{transform:none;}
+@media (hover:none){
+  .ev-product-hover-flip:not(.is-flipped):hover .ev-product-content-side,
+  .ev-product-hover-flip:not(.is-flipped):focus-within .ev-product-content-side{transform:none;}
+  .ev-product-hover-flip:not(.is-flipped):hover .ev-product-image-side,
+  .ev-product-hover-flip:not(.is-flipped):focus-within .ev-product-image-side{transform:translateY(18px);}
+  .ev-product-hover-flip.is-flipped .ev-product-content-side{transform:translateY(-18px);}
+  .ev-product-hover-flip.is-flipped .ev-product-image-side{transform:none;}
+}
+@media (hover:hover){
+  .ev-product-hover-flip:focus-within:not(:focus-visible):not(:hover) .ev-product-content-side{transform:none;}
+  .ev-product-hover-flip:focus-within:not(:focus-visible):not(:hover) .ev-product-image-side{transform:translateY(18px);}
+}
+@media(prefers-reduced-motion:reduce){.ev-product-content-side,.ev-product-image-side{transition:opacity .2s ease, visibility .2s;transform:none!important}}
+
+/* ===== ระยะห่างการ์ดให้เท่ากันทุกส่วน: ไอคอน/แท็ก → หัวข้อ 14px, หัวข้อ → คำอธิบาย 8px ===== */
+.ev-cost-list h3,.ev-feature h3,.ev-product h3,.ev-model h3{line-height:1.35;margin-bottom:0}
+.ev-cost-list li:not(.ev-product-hover-flip){display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.ev-cost-copy{display:flex;flex-direction:column;gap:8px}
+.ev-cost-list li.ev-product-hover-flip h3{margin-bottom:8px}
+.ev-feature{gap:8px}
+.ev-feature-top{margin-bottom:6px}
+.ev-billing-card .ev-feature-top{margin-bottom:6px}
