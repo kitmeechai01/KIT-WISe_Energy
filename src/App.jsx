@@ -47,6 +47,7 @@
 import { useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import "./index.css";
+import "./nav-fix.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Solutions from "./components/Solutions";

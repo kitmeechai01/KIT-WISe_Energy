@@ -1,0 +1,3 @@
+/* พื้นหลังแถบเมนูทึบเหมือนกันทุกเบราว์เซอร์ (ไม่พึ่ง backdrop-filter) */
+header.nav{background:#fff; backdrop-filter:none; -webkit-backdrop-filter:none;}
+@media(max-width:980px){.nav-links{background:#fff;}}

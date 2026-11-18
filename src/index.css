@@ -767,9 +767,9 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
 .ev-info .ig-bar{transform-box:fill-box;transform-origin:50% 100%;animation:igBar 2.4s ease-in-out infinite}
 .ev-info .ig-bar.d2{animation-delay:.3s}.ev-info .ig-bar.d3{animation-delay:.6s}.ev-info .ig-bar.d4{animation-delay:.9s}
 @keyframes igBar{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
-.ev-info .ig-flow{animation:igFlow 3s linear infinite}
+.ev-info .ig-flow{animation:igFlow 1s linear infinite}
 .ev-info .ig-flow.up{animation-direction:reverse}
-@keyframes igFlow{to{stroke-dashoffset:-60}}
+@keyframes igFlow{to{stroke-dashoffset:-22}}
 .ev-info .ig-pulse{animation:igPulse 1.6s ease-in-out infinite}
 .ev-info .ig-pulse.d2{animation-delay:.5s}
 @keyframes igPulse{0%,100%{opacity:1}50%{opacity:.25}}
