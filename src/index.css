@@ -721,3 +721,65 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
 .rv.in{opacity:1; animation:rvUp .75s cubic-bezier(.2,.7,.2,1) var(--rv-d,0s) backwards;}
 @keyframes rvUp{from{opacity:0; transform:translateY(28px);} to{opacity:1; transform:none;}}
 @media (prefers-reduced-motion: reduce){.rv{opacity:1;} .rv.in{animation:none;}}
+
+/* ===== HOW WE WORK bubbles ===== */
+.ev-how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:center;max-width:1060px;margin:0 auto}
+.ev-how .ev-steps{max-width:none;margin:0;order:1}
+.ev-how-bubbles{order:2;position:relative;width:100%;max-width:440px;aspect-ratio:1/1.1;margin:0 auto}
+.ev-how-path{position:absolute;inset:0;width:100%;height:100%}
+.ev-how-path path{fill:none;stroke:rgba(12,21,115,.22);stroke-dasharray:5 6;vector-effect:non-scaling-stroke;stroke-width:1.5}
+.ev-bubble{position:absolute;width:32%;aspect-ratio:1;transform:translate(-50%,-50%);border:0;padding:0;cursor:pointer;border-radius:50%;
+  background:radial-gradient(circle at 30% 25%,#fff 0,#e9edff 55%,#d5dcff 100%);color:var(--navy-2);
+  box-shadow:0 12px 30px rgba(12,21,115,.16),inset 0 -8px 18px rgba(12,21,115,.10),inset 0 6px 12px #fff;
+  transition:width .45s cubic-bezier(.3,1.3,.5,1),background .35s,color .35s,box-shadow .35s;animation:evFloat 6s ease-in-out infinite}
+.ev-bubble::before{content:"";position:absolute;top:10%;left:16%;width:30%;height:16%;border-radius:50%;background:rgba(255,255,255,.85);transform:rotate(-30deg);filter:blur(1px)}
+.ev-bubble-in{position:absolute;inset:24%;display:block}
+.ev-bubble-in svg{width:100%;height:100%;display:block}
+.ev-bubble-n{position:absolute;right:2%;top:4%;min-width:26px;height:26px;padding:0 6px;border-radius:13px;display:grid;place-items:center;font-size:12px;font-weight:700;background:var(--navy);color:#fff;box-shadow:0 4px 10px rgba(0,8,99,.3)}
+.ev-bubble.is-active{width:42%;z-index:2;color:#fff;background:radial-gradient(circle at 30% 25%,#3a4be0 0,#121d8b 55%,#000646 100%);
+  box-shadow:0 0 0 8px rgba(58,75,224,.14),0 20px 44px rgba(0,8,99,.35),inset 0 6px 12px rgba(255,255,255,.25)}
+.ev-bubble.is-active::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:2px solid rgba(58,75,224,.35);animation:evRing 2.4s ease-out infinite}
+.ev-bubble.b1{left:24%;top:18%;animation-delay:0s}
+.ev-bubble.b2{left:74%;top:28%;animation-delay:-1.2s}
+.ev-bubble.b3{left:30%;top:50%;animation-delay:-2.4s}
+.ev-bubble.b4{left:74%;top:66%;animation-delay:-3.6s}
+.ev-bubble.b5{left:46%;top:86%;animation-delay:-4.8s}
+@keyframes evFloat{0%,100%{margin-top:0}50%{margin-top:-10px}}
+@keyframes evRing{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.18);opacity:0}}
+.ev-how .ev-steps .step{cursor:pointer;transition:background .25s,transform .25s;border-radius:14px}
+.ev-how .ev-steps .step.is-active{background:var(--sky-tint);transform:translateX(6px)}
+.ev-how .ev-steps .step.is-active .step-num{box-shadow:0 8px 20px rgba(18,29,139,.35)}
+@media(max-width:860px){
+  .ev-how{grid-template-columns:1fr;gap:20px}
+  .ev-how-bubbles{order:1;max-width:340px}
+  .ev-how .ev-steps{order:2}
+  .ev-how .ev-steps .step.is-active{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.ev-bubble,.ev-bubble.is-active::after{animation:none}}
+/* HOW WE WORK: bubbles shifted right */
+@media(min-width:861px){.ev-how-bubbles{margin:0 0 0 auto;transform:translateX(28px)}}
+/* HOW WE WORK: text 70% / bubbles 30% */
+@media(min-width:861px){.ev-how{grid-template-columns:6fr 4fr;gap:32px;max-width:1160px}.ev-how-bubbles{transform:none;margin:0;max-width:none}}
+/* INVESTMENT infographic */
+.ev-product-image-side .ev-info{width:100%;height:100%;display:block}
+
+/* INVESTMENT infographic animations */
+.ev-info .ig-bar{transform-box:fill-box;transform-origin:50% 100%;animation:igBar 2.4s ease-in-out infinite}
+.ev-info .ig-bar.d2{animation-delay:.3s}.ev-info .ig-bar.d3{animation-delay:.6s}.ev-info .ig-bar.d4{animation-delay:.9s}
+@keyframes igBar{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.ev-info .ig-flow{animation:igFlow 1s linear infinite}
+.ev-info .ig-flow.up{animation-direction:reverse}
+@keyframes igFlow{to{stroke-dashoffset:-22}}
+.ev-info .ig-pulse{animation:igPulse 1.6s ease-in-out infinite}
+.ev-info .ig-pulse.d2{animation-delay:.5s}
+@keyframes igPulse{0%,100%{opacity:1}50%{opacity:.25}}
+.ev-info .ig-load{transform-box:fill-box;transform-origin:0 50%;animation:igLoad 3s ease-in-out infinite}
+@keyframes igLoad{0%{transform:scaleX(.45)}60%,100%{transform:scaleX(1)}}
+.ev-info .ig-tog{animation:igTog 3s ease-in-out infinite}
+.ev-info .ig-tog.t1{animation-delay:.5s}.ev-info .ig-tog.t2{animation-delay:1s}
+@keyframes igTog{0%,100%{opacity:1}50%{opacity:.3}}
+.ev-info .ig-pop{transform-box:fill-box;transform-origin:center;animation:igPop 1.8s ease-in-out infinite}
+@keyframes igPop{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.ev-info .ig-coin{transform-box:fill-box;transform-origin:center;animation:igCoin 2.8s ease-in-out infinite}
+@keyframes igCoin{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(prefers-reduced-motion:reduce){.ev-info *{animation:none!important}}
