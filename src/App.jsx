@@ -57,6 +57,7 @@ import Trusted from "./components/Trusted";
 import Awards from "./components/Awards";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 import HotelPage from "./pages/HotelPage";
 import EVChargerPage from "./pages/EVChargerPage";
 
@@ -117,6 +118,7 @@ export default function App() {
         <Route path="/ev-charger" element={<EVChargerPage />} />
       </Routes>
       <Footer />
+      <BackToTop />
     </>
   );
 }

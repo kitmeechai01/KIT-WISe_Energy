@@ -628,3 +628,19 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
   .ev-product-hover-flip:focus-within:not(:focus-visible):not(:hover) .ev-product-image-side{opacity:0; visibility:hidden;}
   .ev-product-hover-flip:focus-visible{outline:2px solid var(--navy,#000863); outline-offset:3px;}
 }
+
+/* ===== ปุ่มกลับขึ้นด้านบน ===== */
+.back-to-top{
+  position:fixed; right:max(16px, env(safe-area-inset-right)); bottom:max(20px, env(safe-area-inset-bottom)); z-index:60;
+  width:48px; height:48px; display:grid; place-items:center; padding:0; cursor:pointer;
+  border:0; border-radius:50%; color:#fff; background:var(--navy,#000863);
+  box-shadow:0 12px 24px -10px rgba(0,8,99,.6);
+  opacity:0; visibility:hidden; transform:translateY(12px);
+  transition:opacity .3s ease, transform .3s ease, visibility .3s;
+  -webkit-tap-highlight-color:transparent;
+}
+.back-to-top.show{opacity:1; visibility:visible; transform:none;}
+.back-to-top:hover{transform:translateY(-3px); background:var(--navy-2,#0c1573);}
+.back-to-top:focus-visible{outline:2px solid #fff; outline-offset:2px; box-shadow:0 0 0 4px var(--navy,#000863);}
+@media (max-width:640px){.back-to-top{width:52px; height:52px; right:max(14px, env(safe-area-inset-right));}}
+@media (prefers-reduced-motion: reduce){.back-to-top{transition:none;}}
