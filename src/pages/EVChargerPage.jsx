@@ -132,11 +132,11 @@ const STEPS = [
 ];
 
 const COST_FACTORS = [
-  { title: "จำนวนจุดชาร์จและกำลังไฟ", desc: "7kW หรือ 22kW และจำนวนช่องจอดที่ต้องการชาร์จพร้อมกัน", image: "/assets/LINE_ALBUM_โครงการมิลเลนเนียม_260826_2.jpg" },
-  { title: "ระยะทางเดินสาย", desc: "ระยะจากตู้ไฟหลัก (MDB) ถึงจุดชาร์จ ค่าเดินสายและรางสายมักเป็นสัดส่วนหลักของงบ", image: "/assets/LINE_ALBUM_ช่างไฟฟ้า แสนดี_260826_1.jpg" },
-  { title: "สภาพหน้างาน", desc: "เส้นทางร้อยท่อ เดินลอยหรือฝังพื้น และงานก่อสร้างที่จำเป็น", image: "/assets/LINE_ALBUM_พรอสเพอร์_260826_1.jpg" },
-  { title: "ระบบไฟฟ้าเดิม", desc: "ตู้ MDB และเบรกเกอร์ที่ต้องปรับปรุงเพื่อรองรับโหลดเพิ่ม", image: "/assets/LINE_ALBUM_ESARA @CDC_260826_3.jpg" },
-  { title: "ระบบบริหารและเรียกเก็บเงิน", desc: "ระบบหลังบ้านสำหรับคิดค่าชาร์จและค่าที่จอด (ถ้าต้องการ)", image: "/assets/webev.jpeg" },
+  { title: "จำนวนจุดชาร์จและกำลังไฟ", icon: "plug", desc: "7kW หรือ 22kW และจำนวนช่องจอดที่ต้องการชาร์จพร้อมกัน", image: "/assets/EV_Air+Ultra_ Six-PointChargingHub.png" },
+  { title: "ระยะทางเดินสาย", icon: "cable", desc: "ระยะจากตู้ไฟหลัก (MDB) ถึงจุดชาร์จ ค่าเดินสายและรางสายมักเป็นสัดส่วนหลักของงบ", image: "/assets/LINE_ALBUM_ช่างไฟฟ้า แสนดี_260826_1.jpg" },
+  { title: "สภาพหน้างาน", icon: "building", desc: "เส้นทางร้อยท่อ เดินลอยหรือฝังพื้น และงานก่อสร้างที่จำเป็น", image: "/assets/LINE_ALBUM_พรอสเพอร์_260826_1.jpg" },
+  { title: "ระบบไฟฟ้าเดิม", icon: "bolt", desc: "ตู้ MDB และเบรกเกอร์ที่ต้องปรับปรุงเพื่อรองรับโหลดเพิ่ม", image: "/assets/LINE_ALBUM_ESARA @CDC_260826_3.jpg" },
+  { title: "ระบบบริหารและเรียกเก็บเงิน", icon: "billing", desc: "ระบบหลังบ้านสำหรับคิดค่าชาร์จและค่าที่จอด (ถ้าต้องการ)", image: "/assets/webev.jpeg" },
 ];
 
 const LOAD_POINTS = [
@@ -379,10 +379,11 @@ export default function EVChargerPage() {
                 <div className="ev-product-content-side">
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
+                  <div className="ev-cost-badge" aria-hidden="true"><Icon name={c.icon} /></div>
                 </div>
                 <div className="ev-product-image-side">
                   <img src={c.image} alt={c.title} />
-                  <span className="ev-product-visual-label">KIT-WISe <b>EV CHARGING</b></span>
+                  {/* <span className="ev-product-visual-label">KIT-WISe <b>EV CHARGING</b></span> */}
                 </div>
               </li>
             ))}
