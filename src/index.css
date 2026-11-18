@@ -598,3 +598,17 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
   .ev-product dt{font-size:12px;}
   .ev-product dd{font-size:15px; line-height:1.65;}
 }
+
+/* ===== ป้ายบอกว่าแตะได้ (เฉพาะจอสัมผัส) ===== */
+@media (hover:none){
+  .ev-product-hover-flip::after{
+    content:"\1F5BC  แตะเพื่อดูรูป";
+    position:absolute; top:12px; right:12px; z-index:3; pointer-events:none;
+    padding:6px 12px; border-radius:999px;
+    font-size:12px; font-weight:700; line-height:1.2; letter-spacing:.02em; white-space:nowrap;
+    color:#fff; background:rgba(0,8,99,.88); box-shadow:0 6px 14px -8px rgba(0,8,99,.7);
+    transition:opacity .2s ease;
+  }
+  .ev-product-hover-flip:hover::after,
+  .ev-product-hover-flip:focus-within::after{opacity:0;}
+}
