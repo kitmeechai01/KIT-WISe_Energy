@@ -1,7 +1,20 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Header({ jump }) {
   const [navOpen, setNavOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // กดโลโก้: ถ้าอยู่หน้าอื่นให้กลับหน้าหลัก (hero) ถ้าอยู่หน้าหลักอยู่แล้วให้เลื่อนขึ้นบนสุด
+  const goHome = () => {
+    setNavOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const handleJump = (id) => {
     jump(id);
@@ -11,7 +24,7 @@ export default function Header({ jump }) {
   return (
     <header className="nav">
       <div className="wrap nav-inner">
-        <button className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="KIT-WISe home">
+        <button className="logo" onClick={goHome} aria-label="KIT-WISe home">
           <img src="/assets/KW-LOGO.png" alt="KIT-WISe" className="logo-img" />
         </button>
         <ul className={`nav-links${navOpen ? " open" : ""}`}>
