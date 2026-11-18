@@ -599,16 +599,16 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
   .ev-product dd{font-size:15px; line-height:1.65;}
 }
 
-/* ===== ป้ายบอกว่าแตะได้ (เฉพาะจอสัมผัส) ===== */
+/* ===== ลูกศรขยาย/ย่อ บอกว่าแตะการ์ดได้ (เฉพาะจอสัมผัส) ===== */
 @media (hover:none){
   .ev-product-hover-flip::after{
-    content:"\1F5BC  แตะเพื่อดูรูป";
-    position:absolute; top:12px; right:12px; z-index:3; pointer-events:none;
-    padding:6px 12px; border-radius:999px;
-    font-size:12px; font-weight:700; line-height:1.2; letter-spacing:.02em; white-space:nowrap;
-    color:#fff; background:rgba(0,8,99,.88); box-shadow:0 6px 14px -8px rgba(0,8,99,.7);
-    transition:opacity .2s ease;
+    content:""; position:absolute; top:12px; right:12px; z-index:3; pointer-events:none;
+    width:34px; height:34px; border-radius:50%;
+    background:rgba(0,8,99,.88) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / 18px 18px no-repeat;
+    box-shadow:0 6px 14px -8px rgba(0,8,99,.7);
   }
   .ev-product-hover-flip:hover::after,
-  .ev-product-hover-flip:focus-within::after{opacity:0;}
+  .ev-product-hover-flip:focus-within::after{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7'/%3E%3C/svg%3E");
+  }
 }
