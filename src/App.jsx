@@ -58,6 +58,7 @@ import Awards from "./components/Awards";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import ScrollReveal from "./components/ScrollReveal";
 import HotelPage from "./pages/HotelPage";
 import EVChargerPage from "./pages/EVChargerPage";
 
@@ -119,6 +120,7 @@ export default function App() {
       </Routes>
       <Footer />
       <BackToTop />
+      <ScrollReveal />
     </>
   );
 }

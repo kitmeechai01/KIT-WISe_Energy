@@ -342,12 +342,12 @@ export default function EVChargerPage() {
                 </dl>
                 <div className="ev-product-image-side">
                   <img src={p.hoverImage || p.image} alt={p.name} />
-                  <span className="ev-product-visual-label">KIT-WISe <b>EV CHARGING</b></span>
+                  <span className="ev-product-visual-label"><b> {p.name} </b></span>
                 </div>
-                <div className="ev-product-image-side">
+                {/* <div className="ev-product-image-side">
                   <img src={p.hoverImage || p.image} alt={p.name} />
                   <span className="ev-product-visual-label">KIT-WISe <b>EV CHARGING</b></span>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
