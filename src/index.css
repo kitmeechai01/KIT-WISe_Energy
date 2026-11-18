@@ -599,16 +599,28 @@ footer{background:var(--navy); color:var(--elevated); margin-top:20px;}
   .ev-product dd{font-size:15px; line-height:1.65;}
 }
 
-/* ===== ลูกศรขยาย/ย่อ บอกว่าแตะการ์ดได้ (เฉพาะจอสัมผัส) ===== */
+/* ===== INVESTMENT — ไอคอนอยู่ซ้ายล่าง ===== */
+.ev-cost-badge{left:20px; right:auto; bottom:20px;}
+
+/* ===== ลูกศรขยาย/ย่อ (ไม่มีกรอบ สีเดียวกับข้อความ) แตะเพื่อสลับรูป/ข้อความ — จอสัมผัส ===== */
 @media (hover:none){
+  .ev-product-hover-flip{cursor:pointer;}
   .ev-product-hover-flip::after{
-    content:""; position:absolute; top:12px; right:12px; z-index:3; pointer-events:none;
-    width:34px; height:34px; border-radius:50%;
-    background:rgba(0,8,99,.88) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / 18px 18px no-repeat;
-    box-shadow:0 6px 14px -8px rgba(0,8,99,.7);
+    content:""; position:absolute; top:14px; right:14px; z-index:3; pointer-events:none;
+    width:24px; height:24px; background:var(--ink,#1b2150);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / contain no-repeat; mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / contain no-repeat;
   }
-  .ev-product-hover-flip:hover::after,
-  .ev-product-hover-flip:focus-within::after{
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7'/%3E%3C/svg%3E");
+  .ev-cost-list .ev-product-hover-flip::after{top:auto; bottom:22px; right:20px;}
+  /* ยกเลิกการสลับด้วย hover บนจอสัมผัส ใช้การแตะแทน */
+  .ev-product-hover-flip:not(.is-flipped):hover .ev-product-content-side,
+  .ev-product-hover-flip:not(.is-flipped):focus-within .ev-product-content-side{opacity:1; visibility:visible;}
+  .ev-product-hover-flip:not(.is-flipped):hover .ev-product-image-side,
+  .ev-product-hover-flip:not(.is-flipped):focus-within .ev-product-image-side{opacity:0; visibility:hidden;}
+  /* สถานะแสดงรูป (แตะแล้ว) */
+  .ev-product-hover-flip.is-flipped .ev-product-content-side{opacity:0; visibility:hidden;}
+  .ev-product-hover-flip.is-flipped .ev-product-image-side{opacity:1; visibility:visible;}
+  .ev-product-hover-flip.is-flipped::after{
+    background:#fff;
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7'/%3E%3C/svg%3E"); mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7'/%3E%3C/svg%3E");
   }
 }

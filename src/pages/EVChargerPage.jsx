@@ -318,7 +318,7 @@ export default function EVChargerPage() {
           </div>
           <div className="ev-grid-3">
             {PRODUCTS.map((p) => (
-              <div className="ev-product ev-product-hover-flip" key={p.name}>
+              <div className="ev-product ev-product-hover-flip" key={p.name} onClick={(e) => e.currentTarget.classList.toggle("is-flipped")}>
                 {p.image && <img src={p.image} alt={p.name} className="ev-product-img" />}
                 <span className="ev-power">{p.power}</span>
                 <h3>{p.name}</h3>
@@ -375,7 +375,7 @@ export default function EVChargerPage() {
           </div>
           <ul className="ev-cost-list">
             {COST_FACTORS.map((c) => (
-              <li className="ev-product-hover-flip" key={c.title}>
+              <li className="ev-product-hover-flip" key={c.title} onClick={(e) => e.currentTarget.classList.toggle("is-flipped")}>
                 <div className="ev-product-content-side">
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
