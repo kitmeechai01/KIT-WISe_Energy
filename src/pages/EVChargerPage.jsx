@@ -13,6 +13,19 @@
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 
+const flipProps = {
+  role: "button",
+  tabIndex: 0,
+  "aria-label": "สลับระหว่างข้อความและรูป",
+  onClick: (e) => e.currentTarget.classList.toggle("is-flipped"),
+  onKeyDown: (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      e.currentTarget.classList.toggle("is-flipped");
+    }
+  },
+};
+
 function Icon({ name }) {
   const p = {
     width: 26, height: 26, viewBox: "0 0 24 24", fill: "none",
@@ -318,7 +331,7 @@ export default function EVChargerPage() {
           </div>
           <div className="ev-grid-3">
             {PRODUCTS.map((p) => (
-              <div className="ev-product ev-product-hover-flip" key={p.name} onClick={(e) => e.currentTarget.classList.toggle("is-flipped")}>
+              <div className="ev-product ev-product-hover-flip" key={p.name} {...flipProps}>
                 {p.image && <img src={p.image} alt={p.name} className="ev-product-img" />}
                 <span className="ev-power">{p.power}</span>
                 <h3>{p.name}</h3>
@@ -375,7 +388,7 @@ export default function EVChargerPage() {
           </div>
           <ul className="ev-cost-list">
             {COST_FACTORS.map((c) => (
-              <li className="ev-product-hover-flip" key={c.title} onClick={(e) => e.currentTarget.classList.toggle("is-flipped")}>
+              <li className="ev-product-hover-flip" key={c.title} {...flipProps}>
                 <div className="ev-product-content-side">
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
