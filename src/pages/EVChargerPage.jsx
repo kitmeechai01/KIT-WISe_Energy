@@ -145,7 +145,7 @@ const STEPS = [
 ];
 
 const COST_FACTORS = [
-  { title: "จำนวนจุดชาร์จและกำลังไฟ", icon: "plug", desc: "7kW หรือ 22kW และจำนวนช่องจอดที่ต้องการชาร์จพร้อมกัน", image: "/assets/EV_Air+Ultra_ Six-PointChargingHub.png" },
+  { title: "จำนวนจุดชาร์จและกำลังไฟ", icon: "plug", desc: "7kW หรือ 22kW และจำนวนช่องจอดที่ต้องการชาร์จพร้อมกัน", image: "/assets/ev-six-point-hub.jpg" },
   { title: "ระยะทางเดินสาย", icon: "cable", desc: "ระยะจากตู้ไฟหลัก (MDB) ถึงจุดชาร์จ ค่าเดินสายและรางสายมักเป็นสัดส่วนหลักของงบ", image: "/assets/LINE_ALBUM_ช่างไฟฟ้า แสนดี_260826_1.jpg" },
   { title: "สภาพหน้างาน", icon: "building", desc: "เส้นทางร้อยท่อ เดินลอยหรือฝังพื้น และงานก่อสร้างที่จำเป็น", image: "/assets/LINE_ALBUM_พรอสเพอร์_260826_1.jpg" },
   { title: "ระบบไฟฟ้าเดิม", icon: "bolt", desc: "ตู้ MDB และเบรกเกอร์ที่ต้องปรับปรุงเพื่อรองรับโหลดเพิ่ม", image: "/assets/LINE_ALBUM_ESARA @CDC_260826_3.jpg" },
