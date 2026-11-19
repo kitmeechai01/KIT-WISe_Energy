@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import "../dash-carousel.css";
 
 // TODO: ใส่ภาพหน้าจอจริงไว้ที่ public/assets/dashboards/ (ชื่อไฟล์ภาษาอังกฤษ ไม่มีวรรค)
 // แล้วแก้ image / title / desc ให้ตรงกับภาพนั้น ตัวไหนยังเป็น null จะโชว์กราฟตัวอย่างแทน
@@ -107,6 +108,9 @@ export default function DashboardShowcase() {
   const [open, setOpen] = useState(null);
   const lastFocus = useRef(null);
   const closeRef = useRef(null);
+  const marqueeRef = useRef(null);
+  // สถานะของแถบเลื่อน: hover / กำลังลาก / เวลาที่ผู้ใช้โต้ตอบล่าสุด / เปิดภาพขยายอยู่
+  const st = useRef({ hover: false, drag: false, last: 0, open: false, moved: false }).current;
 
   const isOpen = open !== null;
   const current = isOpen ? DASHBOARDS[open] : null;
@@ -116,6 +120,100 @@ export default function DashboardShowcase() {
     // ปุ่มในชุดสำเนา (aria-hidden) ไม่ต้องคืนโฟกัสกลับไป
     lastFocus.current = el.closest('[aria-hidden="true"]') ? null : el;
     setOpen(i);
+  };
+
+  useEffect(() => {
+    st.open = isOpen;
+  }, [isOpen, st]);
+
+  // แถบเลื่อนอัตโนมัติ + เลื่อนย้อนกลับ/ไปข้างหน้าเองได้ (ปัด, ลาก, ปุ่มลูกศร) วนไม่รู้จบ (3 ชุดต่อกัน)
+  useEffect(() => {
+    const el = marqueeRef.current;
+    if (!el) return;
+    const first = el.querySelector(".marquee-group");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const G = () => first.offsetWidth;
+    let pos = 0;
+    let raf;
+    let prev = performance.now();
+
+    el.scrollLeft = G(); // เริ่มที่ชุดกลาง เพื่อให้เลื่อนย้อนกลับได้ทันที
+    pos = el.scrollLeft;
+
+    const onScroll = () => {
+      const g = G();
+      if (!g) return;
+      const s = el.scrollLeft;
+      if (Math.abs(s - pos) > 1.5) {
+        pos = s; // ผู้ใช้เป็นคนเลื่อน
+        st.last = performance.now();
+      }
+      if (s >= 2 * g) { el.scrollLeft = s - g; pos = s - g; }
+      else if (s <= 1) { el.scrollLeft = s + g; pos = s + g; }
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+
+    const tick = (t) => {
+      const dt = Math.min(64, t - prev);
+      prev = t;
+      const idle = t - st.last > 3000;
+      if (!reduce && idle && !st.hover && !st.drag && !st.open && !document.hidden) {
+        const g = G();
+        pos += 0.04 * dt; // ประมาณ 40px ต่อวินาที
+        if (pos >= 2 * g) pos -= g;
+        el.scrollLeft = pos;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    // ลากด้วยเมาส์
+    let startX = 0;
+    let startSL = 0;
+    const onMove = (e) => {
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 5) st.moved = true;
+      el.scrollLeft = startSL - dx;
+    };
+    const onUp = () => {
+      st.drag = false;
+      st.last = performance.now();
+      el.classList.remove("is-dragging");
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      setTimeout(() => { st.moved = false; }, 0);
+    };
+    const onDown = (e) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      st.drag = true;
+      st.moved = false;
+      startX = e.clientX;
+      startSL = el.scrollLeft;
+      el.classList.add("is-dragging");
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", onUp);
+    };
+    el.addEventListener("pointerdown", onDown);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("scroll", onScroll);
+      el.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+    };
+  }, [st]);
+
+  const nudge = (dir) => {
+    const el = marqueeRef.current;
+    if (!el) return;
+    const first = el.querySelector(".marquee-group");
+    const card = first.querySelector(".dash-card");
+    const g = first.offsetWidth;
+    if (el.scrollLeft > 1.5 * g) el.scrollLeft -= g;
+    else if (el.scrollLeft < 0.5 * g) el.scrollLeft += g;
+    st.last = performance.now();
+    el.scrollBy({ left: dir * (card.offsetWidth + 20), behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -146,10 +244,22 @@ export default function DashboardShowcase() {
         <p className="lede">ชี้เมาส์ที่ภาพเพื่อหยุดเลื่อน คลิกเพื่อขยายและอ่านว่าแต่ละหน้าจอใช้ทำอะไร</p>
       </div> */}
 
-      <div className={`marquee${isOpen ? " is-paused" : ""}`}>
-        <div className="marquee-track">
-          <Group items={DASHBOARDS} onOpen={openAt} />
-          <Group items={DASHBOARDS} onOpen={openAt} hidden />
+      <div className="dash-carousel">
+        <button type="button" className="dash-arrow prev" aria-label="ภาพก่อนหน้า" onClick={() => nudge(-1)}>‹</button>
+        <button type="button" className="dash-arrow next" aria-label="ภาพถัดไป" onClick={() => nudge(1)}>›</button>
+        <div
+          ref={marqueeRef}
+          className={`marquee is-js${isOpen ? " is-paused" : ""}`}
+          onMouseEnter={() => { st.hover = true; }}
+          onMouseLeave={() => { st.hover = false; st.last = performance.now(); }}
+          onTouchStart={() => { st.last = performance.now(); }}
+          onClickCapture={(e) => { if (st.moved) { e.preventDefault(); e.stopPropagation(); } }}
+        >
+          <div className="marquee-track">
+            <Group items={DASHBOARDS} onOpen={openAt} hidden />
+            <Group items={DASHBOARDS} onOpen={openAt} />
+            <Group items={DASHBOARDS} onOpen={openAt} hidden />
+          </div>
         </div>
       </div>
 

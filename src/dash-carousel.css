@@ -1,0 +1,12 @@
+/* แถบ Dashboard ใน WHY KIT-WISe: เลื่อนอัตโนมัติ + ปัด/ลาก/กดลูกศรเพื่อย้อนกลับได้ */
+.dash-carousel{position:relative}
+.marquee.is-js{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.marquee.is-js::-webkit-scrollbar{display:none}
+.marquee.is-js.is-dragging{cursor:grabbing;user-select:none}
+.marquee.is-js .marquee-track{animation:none;transform:none}
+.dash-arrow{position:absolute;top:calc(50% - 22px);z-index:3;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,8,99,.88);color:#fff;font-size:30px;line-height:1;padding:0 0 4px;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,8,99,.6);transition:transform .18s ease,background .18s ease}
+.dash-arrow:hover{background:var(--navy);transform:scale(1.08)}
+.dash-arrow:active{transform:scale(.95)}
+.dash-arrow.prev{left:clamp(8px,2vw,28px)}
+.dash-arrow.next{right:clamp(8px,2vw,28px)}
+@media(max-width:640px){.dash-arrow{width:38px;height:38px;font-size:26px;top:calc(50% - 19px)}}
