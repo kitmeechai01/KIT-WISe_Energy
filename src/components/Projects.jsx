@@ -7,7 +7,7 @@ const PROJECTS = [
     cat: "energy", 
     catLabel: "ENERGY MANAGEMENT", 
     icon: "grid", 
-    image: "/assets/LINE_ALBUM_ถ่ายวิดีโอบ้านคุณลิม_260826_2.jpg", 
+    image: "/assets/project-home-02.jpg", 
     description: "ติดตั้งระบบจัดการพลังงาน KW-CENTER ที่หน้างานวัชรพล สำหรับติดตามและควบคุมการใช้ไฟฟ้าภายในบ้าน" 
   },{ 
     id: "p2", 
@@ -23,7 +23,7 @@ const PROJECTS = [
     cat: "energy", 
     catLabel: "ENERGY MANAGEMENT", 
     icon: "grid", 
-    image: "/assets/LINE_ALBUM_12267ลงโปรแกรมห้องคุณเพ้ง (ช่องจอด 203)_260826_1.jpg", 
+    image: "/assets/project-condo-01.jpg", 
     description: "ลงโปรแกรมระบบ KW-C-0108i ที่ห้องคุณเพ้ง ช่องจอด 203 โครงการ Marque Resident" 
   },{ 
     id: "p4", 
@@ -119,7 +119,7 @@ const PROJECTS = [
     cat: "energy", 
     catLabel: "ENERGY MANAGEMENT", 
     icon: "grid", 
-    image: "/assets/LINE_ALBUM_SAN-D บ้าน อ.กฤษชนม์_260826_1.jpg", 
+    image: "/assets/project-sand-home-01.jpg", 
     description: "ติดตั้งระบบ KW-C-0054 ที่บ้าน อ.กฤษชนม์" 
   },{ 
     id: "p17", 
@@ -127,7 +127,7 @@ const PROJECTS = [
     cat: "energy", 
     catLabel: "ENERGY MANAGEMENT", 
     icon: "grid", 
-    image: "/assets/LINE_ALBUM_SAN-D บ้านคุณอิม_260826_1.jpg", 
+    image: "/assets/project-sand-home-02.jpg", 
     description: "ติดตั้งระบบ KW-C-0054 ที่บ้านคุณอิม" 
   },{ 
     id: "p18", 
@@ -143,7 +143,7 @@ const PROJECTS = [
     cat: "energy", 
     catLabel: "ENERGY MANAGEMENT", 
     icon: "grid", 
-    image: "/assets/LINE_ALBUM_SAN-D บ้านคุณยี้_260826_1.jpg", 
+    image: "/assets/project-sand-home-03.jpg", 
     description: "ติดตั้งระบบ KW-C-0054 ที่บ้านคุณยี้" 
   },{ 
     id: "p20", 
@@ -159,7 +159,7 @@ const PROJECTS = [
     cat: "energy", 
     catLabel: "ENERGY MANAGEMENT", 
     icon: "grid", 
-    image: "/assets/LINE_ALBUM_ถ่ายวิดีโอบ้านคุณลิม_260826_1.jpg", 
+    image: "/assets/project-home-01.jpg", 
     description: "ติดตั้งระบบ KW-C-0054 ที่บ้านคุณลิม" 
   },{ 
     id: "p22", 
@@ -191,7 +191,7 @@ const PROJECTS = [
     cat: "energy", 
     catLabel: "ENERGY MANAGEMENT", 
     icon: "grid", 
-    image: "/assets/LINE_ALBUM_บ้านคุณก้อย รามอินทรา 2332569_260323_9.jpg", 
+    image: "/assets/project-kitwise-home-01.jpg", 
     description: "ติดตั้งระบบ KIT-WISe 1 เฟส Wi-Fi ที่บ้านคุณก้อย รามอินทรา" 
   }
 ];
